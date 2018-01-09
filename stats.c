@@ -28,14 +28,22 @@
 #define SIZE (40)
 
 void main() {
-	printf("\n\n");
+	printf("\n");
 	unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
 								114, 88,   45,  76, 123,  87,  25,  23,
 								200, 122, 150, 90,   92,  87, 177, 244,
 								201,   6,  12,  60,   8,   2,   5,  67,
 								7,  87, 250, 230,  99,   3, 100,  90};
-
+	printf("|--------------------|\n");
+	printf("|Unsorted Input Array|\n");
+	printf("|--------------------|\n");
+	print_array(test, SIZE, 4);
+	
+	printf("\n");
 	quick_sort(test, 0, SIZE-1);
+	printf("|------------------------|\n");
+	printf("|Sorted Array High to Low|\n");
+	printf("|------------------------|\n");
 	print_array(test, SIZE, 4);
 	print_statistics(test, SIZE);
 	/* Statistics and Printing Functions Go Here */
@@ -59,6 +67,8 @@ void print_array(unsigned char* arrayPtr, int arraySize, int wrap) {
 			j = wrap;
 		}
 	}
+
+	printf("\n");
 }
 
 void print_statistics(unsigned char* arrayPtr, int arraySize) {
@@ -68,7 +78,10 @@ void print_statistics(unsigned char* arrayPtr, int arraySize) {
 	float mean			= find_mean(arrayPtr, arraySize);
 	float median		= find_median(arrayPtr, arraySize);
 
-	printf("\n\n");
+	printf("\n");
+	printf("|----------------|\n");
+	printf("|Array Statistics|\n");
+	printf("|----------------|\n");
 	printf("Minimum:\t%i\n",	min);
 	printf("Maximum:\t%i\n",	max);
 	printf("Mean:\t\t%.2f\n",	mean);
